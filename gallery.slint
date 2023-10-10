@@ -1,0 +1,72 @@
+// Copyright © SixtyFPS GmbH <info@slint.dev>
+// SPDX-License-Identifier: MIT
+
+import { CheckBox, ComboBox,LineEdit,SpinBox, HorizontalBox ,VerticalBox, Button, GroupBox} from "std-widgets.slint";
+
+
+export component App inherits Window {
+    preferred-width: 700px;
+    preferred-height: 500px;
+    title: @tr("小学四则运算生成器--designed by Sol3Coder");
+    out property <bool> addChecked :true;
+    out property <bool> minusChecked:false;
+    out property <bool> multiplyChecked:true;
+    out property <bool> divideChecked:false;
+    out property <int> typeIndex;
+
+    out property <int> rangeIndex;
+    out property <int> cntIndex;
+    callback genBtnClicked();
+
+    VerticalBox{
+       
+        HorizontalBox{
+            Text {
+                text:"运算类型";
+            }
+            ComboBox {
+                model: [@tr("加法"), @tr("减法"), @tr("乘法"), @tr("除法")];
+                selected => {
+                    root.typeIndex = self.current-index;
+                }
+            }
+            Text {
+                text:"范围";
+            }
+            ComboBox {
+                model: [@tr("10以内"), @tr("20以内"), @tr("50以内"), @tr("100以内")];
+                selected => {
+                    root.rangeIndex = self.current-index;
+                }
+            }
+
+            
+            Text {
+                text:"运算数";
+            }
+            ComboBox {
+                model: [@tr("2"), @tr("3"), @tr("4")];
+                selected => {
+                    root.cntIndex = self.current-index;
+                }
+
+            }
+        }
+        HorizontalBox{
+       
+            Button { 
+                preferred-width: 100px;
+                preferred-height: 25px;
+                text: @tr("生成");
+                clicked => {
+                    root.genBtnClicked()
+                }
+        
+             } 
+        }
+     
+    }
+  
+
+
+}

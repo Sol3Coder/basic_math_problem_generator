@@ -1,0 +1,12 @@
+[package]
+name = "mathgenerator"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+
+[dependencies]
+rand = "0.8.5"
+printpdf = "0.6.0 "
+slint = { path = "F:/workspace/mylibs/slint-master/api/rs/slint", features=["gettext"] }
+[build-dependencies]
+slint-build = { path = "F:/workspace/mylibs/slint-master/api/rs/build" }
