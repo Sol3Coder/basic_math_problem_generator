@@ -8,12 +8,8 @@ export component App inherits Window {
     preferred-width: 700px;
     preferred-height: 500px;
     title: @tr("小学四则运算生成器--designed by Sol3Coder");
-    out property <bool> addChecked :true;
-    out property <bool> minusChecked:false;
-    out property <bool> multiplyChecked:true;
-    out property <bool> divideChecked:false;
-    out property <int> typeIndex;
 
+    out property <int> typeIndex;
     out property <int> rangeIndex;
     out property <int> cntIndex;
     callback genBtnClicked();
