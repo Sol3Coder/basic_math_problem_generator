@@ -1,6 +1,7 @@
 use printpdf::*;
 use std::fs::File;
 use std::io::BufWriter;
+use chrono::Local;
 
 use rand::Rng;
 
@@ -13,9 +14,7 @@ struct UserInput{
 }
 
 pub fn main() {
-
-
-
+   
     let app = App::new().unwrap();
     {
         let app_weak = app.as_weak();
@@ -159,7 +158,10 @@ fn gen_doc(user_input:UserInput){
 
      
     }
+     // 获取本地时间
+     let now =  Local::now();
+     let file_name =  now.format("%Y-%m-%d %H-%M-%S.pdf").to_string();
+ 
 
-
-    doc.save(&mut BufWriter::new(File::create("test_working.pdf").unwrap())).unwrap();
+    doc.save(&mut BufWriter::new(File::create(file_name).unwrap())).unwrap();
 }

@@ -8,5 +8,6 @@ build = "build.rs"
 rand = "0.8.5"
 printpdf = "0.6.0 "
 slint = { path = "F:/workspace/mylibs/slint-master/api/rs/slint", features=["gettext"] }
+chrono = "0.4.31"
 [build-dependencies]
 slint-build = { path = "F:/workspace/mylibs/slint-master/api/rs/build" }
